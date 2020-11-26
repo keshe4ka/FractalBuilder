@@ -1,0 +1,10 @@
+E:\VS Projects\FractalBuilder\bin\Debug\FractalBuilder.exe.config
+E:\VS Projects\FractalBuilder\bin\Debug\FractalBuilder.exe
+E:\VS Projects\FractalBuilder\bin\Debug\FractalBuilder.pdb
+E:\VS Projects\FractalBuilder\obj\Debug\FractalBuilder.csprojAssemblyReference.cache
+E:\VS Projects\FractalBuilder\obj\Debug\FractalBuilder.Properties.Resources.resources
+E:\VS Projects\FractalBuilder\obj\Debug\FractalBuilder.csproj.GenerateResource.cache
+E:\VS Projects\FractalBuilder\obj\Debug\FractalBuilder.csproj.CoreCompileInputs.cache
+E:\VS Projects\FractalBuilder\obj\Debug\FractalBuilder.exe
+E:\VS Projects\FractalBuilder\obj\Debug\FractalBuilder.pdb
+E:\VS Projects\FractalBuilder\obj\Debug\FractalBuilder.MainForm.resources
