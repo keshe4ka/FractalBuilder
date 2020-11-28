@@ -18,29 +18,32 @@ namespace FractalBuilder
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Заполняет pictureBox белым
+        /// </summary>
+        private void FillPictureBox()
+        {
+            var bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
+            pictureBox.Image = bitmap;
+            g = Graphics.FromImage(bitmap);
+            g.FillRectangle(Brushes.White, 0, 0, pictureBox.Width, pictureBox.Height);
+        }
+
         private void DrawButtonClick(object sender, EventArgs e)
         {
-            //заполнение pictureBox нельзя вынести за условие, т.к. в таком случае срабатывает сохранение пустого изображения  
-            var bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             if (comboBox.SelectedItem == comboBox.Items[0])
             {
-                pictureBox.Image = bitmap;
-                g = Graphics.FromImage(bitmap);
-                g.FillRectangle(Brushes.White, 0, 0, pictureBox.Width, pictureBox.Height);
+                FillPictureBox();
                 DrawFractalTree(pictureBox.Width / 2, 0, trackLength.Value, trackAngle.Value);
             }
             else if (comboBox.SelectedItem == comboBox.Items[1])
             {
-                pictureBox.Image = bitmap;
-                g = Graphics.FromImage(bitmap);
-                g.FillRectangle(Brushes.White, 0, 0, pictureBox.Width, pictureBox.Height);
+                FillPictureBox();
                 DrawBarnsleysFern(pictureBox.Width / 2, pictureBox.Height, trackLength.Value, Math.PI / 2);
             }
             else if (comboBox.SelectedItem == comboBox.Items[2])
             {
-                pictureBox.Image = bitmap;
-                g = Graphics.FromImage(bitmap);
-                g.FillRectangle(Brushes.White, 0, 0, pictureBox.Width, pictureBox.Height);
+                FillPictureBox();
                 int dir = 1;
                 if (closedCheckBox.Checked) { dir = 6; }
                 DrawQuasiCloverFractal(pictureBox.Width / 2, 3 * pictureBox.Height / 5, trackLength.Value, dir, trackLengthDivider.Value);

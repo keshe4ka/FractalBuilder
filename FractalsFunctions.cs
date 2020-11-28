@@ -24,30 +24,31 @@ namespace FractalBuilder
             double x1, y1;
             x1 = x + length * Math.Sin(angle * Math.PI * 2 / 360.0);
             y1 = y + length * Math.Cos(angle * Math.PI * 2 / 360.0);
-            if (!multicoloredCheckBox.Checked)
-            {
-                g.DrawLine(new Pen(Color.Black, length / 25), x, pictureBox.Height - y, (int)x1, pictureBox.Height - (int)y1);
-            }
-            else
+            if (multicoloredCheckBox.Checked)
             {
                 Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                 g.DrawLine(new Pen(randomColor, length / 25), x, pictureBox.Height - y, (int)x1, pictureBox.Height - (int)y1);
             }
+            else
+            {
+                g.DrawLine(new Pen(Color.Black, length / 25), x, pictureBox.Height - y, (int)x1, pictureBox.Height - (int)y1);
+            }
             if (length > 20) //перестаем рисовать, если длина ветви меньше 21px
             {
-                if (!assymetricalCheckBox.Checked)
+                if (assymetricalCheckBox.Checked)
+                {
+                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle + rnd.Next(10, 88));
+                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle - rnd.Next(10, 88));
+                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle + rnd.Next(10, 88));
+                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle - rnd.Next(10, 88));
+
+                }
+                else
                 {
                     DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle + 35);
                     DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle - 35);
                     DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle + 15);
                     DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle - 15);
-                }
-                else
-                {
-                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle + rnd.Next(10, 88));
-                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle - rnd.Next(10, 88));
-                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle + rnd.Next(10, 88));
-                    DrawFractalTree((int)x1, (int)y1, (int)(length / ((double)trackLengthDivider.Value / 100)), angle - rnd.Next(10, 88));
                 }
             }
         }
@@ -61,14 +62,14 @@ namespace FractalBuilder
         /// <param name="angle">угол наклона</param>
         public void DrawBarnsleysFern(int x, int y, double length, double angle)
         {
-            if (!multicoloredCheckBox.Checked)
-            {
-                g.DrawLine(new Pen(Color.Black, (float)length / 25), x, y, (int)Math.Round(x + length * Math.Cos(angle)), (int)Math.Round(y - length * Math.Sin(angle)));
-            }
-            else
+            if (multicoloredCheckBox.Checked)
             {
                 Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                 g.DrawLine(new Pen(randomColor, (float)length / 25), x, y, (int)Math.Round(x + length * Math.Cos(angle)), (int)Math.Round(y - length * Math.Sin(angle)));
+            }
+            else
+            {
+                g.DrawLine(new Pen(Color.Black, (float)length / 25), x, y, (int)Math.Round(x + length * Math.Cos(angle)), (int)Math.Round(y - length * Math.Sin(angle)));
             }
             if (length > (double)trackLengthDivider.Value / 100)
             {
@@ -90,14 +91,14 @@ namespace FractalBuilder
         /// <param name="iteration">количество итераций</param>
         public void DrawQuasiCloverFractal(int x0, int y0, int r, int dir, int iteration)
         {
-            if (!multicoloredCheckBox.Checked)
-            {
-                g.FillEllipse(new SolidBrush(Color.Black), x0 - r, y0 - r, 2 * r, 2 * r);
-            }
-            else
+            if (multicoloredCheckBox.Checked)
             {
                 Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                 g.FillEllipse(new SolidBrush(randomColor), x0 - r, y0 - r, 2 * r, 2 * r);
+            }
+            else
+            {
+                g.FillEllipse(new SolidBrush(Color.Black), x0 - r, y0 - r, 2 * r, 2 * r);
             }
             if (iteration > 0)
             {
