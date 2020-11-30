@@ -16,7 +16,7 @@ namespace FractalBuilder
         public MainForm()
         {
             InitializeComponent();
-        }
+        }                
 
         /// <summary>
         /// Заполняет pictureBox белым
@@ -31,6 +31,8 @@ namespace FractalBuilder
 
         private void DrawButtonClick(object sender, EventArgs e)
         {
+            drawButton.Enabled = false;
+            timer.Start();
             if (comboBox.SelectedItem == comboBox.Items[0])
             {
                 FillPictureBox();
@@ -45,7 +47,7 @@ namespace FractalBuilder
             {
                 FillPictureBox();
                 int dir = 1;
-                if (closedCheckBox.Checked) { dir = 6; }
+                if (closedCheckBox.Checked) { dir = 6; } //при dir == 6, фрактал получается "закрытого" типа
                 DrawQuasiCloverFractal(pictureBox.Width / 2, 3 * pictureBox.Height / 5, trackLength.Value, dir, trackLengthDivider.Value);
             }
         }
@@ -127,5 +129,11 @@ namespace FractalBuilder
             }
         }
 
+        //Таймер для защиты кнопки Draw от спама
+        private void TimerTick(object sender, EventArgs e)
+        {
+            drawButton.Enabled = true;
+            timer.Stop();
+        }
     }
 }

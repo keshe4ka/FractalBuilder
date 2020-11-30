@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.drawButton = new System.Windows.Forms.Button();
             this.comboBox = new System.Windows.Forms.ComboBox();
@@ -46,6 +47,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackLengthDivider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -256,6 +258,11 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.TimerTick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +315,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

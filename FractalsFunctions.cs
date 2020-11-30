@@ -19,7 +19,7 @@ namespace FractalBuilder
         /// <param name="y">координата y</param>
         /// <param name="length">длина ветви</param>
         /// <param name="angle">угол поворота дерева</param>
-        public void DrawFractalTree(int x, int y, int length, double angle)
+        private void DrawFractalTree(int x, int y, int length, double angle)
         {
             double x1, y1;
             x1 = x + length * Math.Sin(angle * Math.PI * 2 / 360.0);
@@ -54,13 +54,13 @@ namespace FractalBuilder
         }
 
         /// <summary>
-        /// Рисует папаротник Бернли
+        /// Рисует папоротник Барнсли
         /// </summary>
         /// <param name="x">координата x</param>
         /// <param name="y">координата у</param>
         /// <param name="length">длина ветви</param>
         /// <param name="angle">угол наклона</param>
-        public void DrawBarnsleysFern(int x, int y, double length, double angle)
+        private void DrawBarnsleysFern(int x, int y, double length, double angle)
         {
             if (multicoloredCheckBox.Checked)
             {
@@ -89,7 +89,7 @@ namespace FractalBuilder
         /// <param name="r">радиус круга</param>
         /// <param name="dir">индекс, определяющий положение родителя</param>
         /// <param name="iteration">количество итераций</param>
-        public void DrawQuasiCloverFractal(int x0, int y0, int r, int dir, int iteration)
+        private void DrawQuasiCloverFractal(int x0, int y0, int r, int dir, int iteration)
         {
             if (multicoloredCheckBox.Checked)
             {
